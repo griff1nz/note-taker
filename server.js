@@ -5,7 +5,7 @@ const fs = require("fs");
 const notes = require('./db/db.json');
 const uuid = require('./helpers/uuid');
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -58,7 +58,10 @@ app.post('/api/notes', (req, res) =>
     res.send("Delete request called")
     const itemIndex = notes.findIndex(({ id }) => id === req.params.id); 
     notes.splice(itemIndex, 1);//https://stackoverflow.com/questions/65015000/how-do-i-use-express-js-app-delete-to-remove-a-specific-object-from-an-array
-    const result = JSON.stringify(notes);
+    // const result = notes.filter(({ id }) => id !== req.params.id);
+    // const resultToPush = JSON.stringify(result);
+    // console.log(result);
+    // const result = JSON.stringify(notes);
 
     fs.writeFile('./db/db.json', result, (err) =>
       err
@@ -67,10 +70,7 @@ app.post('/api/notes', (req, res) =>
             `Note has been removed!`
           )
     );
-      const response = {
-        status: 'success',
-        body: result,
-      }});
+      });
 app.listen(PORT, () => 
     console.log("Listening at port 3001")
 );
