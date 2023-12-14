@@ -58,10 +58,7 @@ app.post('/api/notes', (req, res) =>
     res.send("Delete request called")
     const itemIndex = notes.findIndex(({ id }) => id === req.params.id); 
     notes.splice(itemIndex, 1);//https://stackoverflow.com/questions/65015000/how-do-i-use-express-js-app-delete-to-remove-a-specific-object-from-an-array
-    // const result = notes.filter(({ id }) => id !== req.params.id);
-    // const resultToPush = JSON.stringify(result);
-    // console.log(result);
-    // const result = JSON.stringify(notes);
+    const result = JSON.stringify(notes);
 
     fs.writeFile('./db/db.json', result, (err) =>
       err
