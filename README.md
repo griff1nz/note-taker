@@ -12,7 +12,8 @@ Upon connecting to the webpage, the user will be presented with a button that, w
 ![Screenshot of Webpage](<./public/assets/note.png>)
 
 ## Credits 
-Explanation of findIndex() method: https://stackoverflow.com/questions/65015000/how-do-i-use-express-js-app-delete-to-remove-a-specific-object-from-an-array
+- Explanation of findIndex() method: https://stackoverflow.com/questions/65015000/how-do-i-use-express-js-app-delete-to-remove-a-specific-object-from-an-array
+- ./helpers/uuid.js copied from classwork
 
 ## License
 Please refer to the LICENSE in the repo.
